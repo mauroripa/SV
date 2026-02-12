@@ -162,24 +162,33 @@
       button { padding: 12px 28px; font-size: 15px; }
       #yes { left: 8%; }
       #no { left: 55%; }
+      img.responsive {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 15px auto;
+}
+
     }
   </style>
 </head>
 
 <body>
-  <img src="quackandlolasleeping.webp" \>
-  <div class="card">
-    <div class="emoji">🦔❤️</div>
-    <h2>🦔Riccia,<br> vuoi essere la mia Lola?</h2>
-
-    <div class="buttons">
-      <button id="yes">Sì 💖</button>
-      <button id="no">No 😣</button>
-    </div>
-
-    <div class="hint">Indizio: Non sono una persona da “no” ✨</div>
+  <div class="div">
+  <img src="quackandlolasleeping.webp" class="responsive">
   </div>
-    <img src="quackandlola.webp" >
+<div class="card">
+  <div class="emoji">🦔❤️</div>
+  <h2>🦔Riccia,<br> vuoi essere la mia Lola?</h2>
+  <div class="buttons">
+    <button id="yes">Sì 💖</button>
+    <button id="no">No 😣</button>
+  </div>
+  <div class="hint">Indizio: Non sono una persona da “no” ✨</div>
+</div>
+<div class="div">
+<img src="quackandlola.webp" class="responsive">
+</div>
   <!-- Sounds -->
   <audio id="hoverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-cartoon-voice-laugh-343.mp3"></audio>
   <audio id="yesSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
