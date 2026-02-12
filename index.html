@@ -159,6 +159,8 @@
     border-radius: 15px;
     margin-top: 10px;
   }
+
+  #sticker { display:none; }
 </style>
 </head>
 
@@ -199,13 +201,6 @@ const hoverSound = document.getElementById("hoverSound");
 const yesSound = document.getElementById("yesSound");
 const customAlert = document.getElementById("customAlert");
 
-// Array sticker fluttuanti
-const stickers = [
-  "shooting.webp",
-  "running.webp"
-];
-
-// No button effetto
 noBtn.addEventListener("mouseenter", () => {
   hoverSound.currentTime = 0;
   hoverSound.play();
@@ -217,7 +212,6 @@ noBtn.addEventListener("mouseenter", () => {
   noBtn.style.top = Math.random() * maxY + "px";
 });
 
-// Yes button effetto
 yesBtn.addEventListener("click", () => {
   yesSound.play();
   confetti({ particleCount: 260, spread: 120, origin: { y: 0.65 }});
@@ -231,30 +225,22 @@ yesBtn.addEventListener("click", () => {
   setTimeout(() => {
     customAlert.style.opacity = 0;
     setTimeout(() => customAlert.style.display = "none", 300);
-  }, 2000);
+  }, 2000); // 2 secondi
 });
 
-// Funzione sticker fluttuanti
-function createSticker() {
-  const sticker = document.createElement("div");
-  sticker.className = "heart";
-  const img = document.createElement("img");
-  img.src = stickers[Math.floor(Math.random() * stickers.length)];
-  img.style.width = Math.random() * 40 + 30 + "px"; // 30-70px
-  img.style.height = "auto";
-  sticker.appendChild(img);
-
-  sticker.style.left = Math.random() * 100 + "vw";
-  sticker.style.animationDuration = Math.random() * 3 + 4 + "s"; // 4-7s
-  sticker.style.opacity = Math.random() * 0.5 + 0.5;
-
-  document.body.appendChild(sticker);
-  setTimeout(() => sticker.remove(), 8000);
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = Math.random() > 0.5 ? "❤️" : "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 22 + 14 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+  heart.style.opacity = Math.random() * 0.5 + 0.4;
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
 }
 
-// Lancia uno sticker ogni 400ms
-setInterval(createSticker, 400);
+setInterval(createHeart, 380);
 </script>
-
 </body>
 </html>
