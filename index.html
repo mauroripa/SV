@@ -171,7 +171,13 @@ const yesSound = document.getElementById("yesSound");
 const customAlert = document.getElementById("customAlert");
 
 // Funzione per spostare il tasto No
-noBtn.addEventListener("mouseenter", () => {
+noBtn.addEventListener("mouseenter", scappaVia());
+noBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Impedisce il click reale sui dispositivi touch
+  scappaVia();
+});
+
+function scappaVia() {
   // 1. Riproduci suono
   hoverSound.currentTime = 0;
   hoverSound.play();
@@ -194,7 +200,7 @@ noBtn.addEventListener("mouseenter", () => {
   // Applica le nuove coordinate
   noBtn.style.left = randomX + "px";
   noBtn.style.top = randomY + "px";
-});
+}
 
 // Click sul Sì
 yesBtn.addEventListener("click", () => {
